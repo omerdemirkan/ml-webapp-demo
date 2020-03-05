@@ -4,7 +4,6 @@ import numpy as np
 from tensorflow.keras.utils import Sequence
 
 class ImgGenFromDir(Sequence):
-
     def __init__(self, dir, img_size, batch_size):
         #populate paths and labels from dir
         self.paths = []

@@ -1,4 +1,5 @@
 import os
+import cv2
 import numpy as np
 from base64 import b64decode
 from flask import Flask, request, jsonify, make_response
@@ -24,16 +25,18 @@ def classify_img():
         return preflight_res()
 
     req_body = request.get_json(force=True)
-    img_data = req_body['image'] 
+    img_data = req_body['image']
+    img_arr = np.fromstring(b64decode(img_data), np.uint8)
+    img_arr = cv2.imdecode(img_arr, cv2.COLOR_BGR2RGB)
+    activation = predict(img_arr)
 
-    activation = predict(img_data)
     if activation >= 0.5:
         animal = "cat"
     else:
         animal = "dog"
 
-    res_body = ({
+    res_body = {
         'animal': animal,
         'activation': str(activation)
-    })
+    }
     return create_res(res_body)

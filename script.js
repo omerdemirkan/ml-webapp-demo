@@ -11,7 +11,7 @@ browse_button.addEventListener('click', function(event) {
   file_input.click();
 })
 
-// reads b64 encoded image into file_contents
+// reads base64 byte-string encoding of image into file_contents
 file_input.addEventListener('change', function(event) {
   const file = this.files[0];
   const reader = new FileReader();

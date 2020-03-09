@@ -13,5 +13,5 @@ The predict method from model/predict.py is then called with this array as its p
 
 App.py then packages this activation along with the corresponding label into a JSON object, which is sent back to the front-end as the response to the post request. Upon receiving this response, script.js then outputs the appropriate text to the web page.
 
-model/data.py was a script ran once to organize images in the dataset into different directories. model/model.py and model.generator.py were also scripts ran only once to train the model. script.js, app.py, and model/predict.py are the programs that are ran while the app is running. 
+*model/data.py was a script ran once to organize images in the dataset into different directories. model/model.py and model.generator.py were also scripts ran only once to train the model. script.js, app.py, and model/predict.py are the programs that are ran while the app is running.*
 
